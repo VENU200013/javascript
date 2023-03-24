@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./person-details.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color: bisque">
+<div>
+    
+        <div id="but">
+    <input type="button" id="save2" value="add-details" class="btn btn-primary"></input>
+    <button onclick="details()" class="btn btn-success">get-details</button>
+    <button onclick="deleteStudent2()" class="btn btn-danger">delet-details</button>
+</div>
+    <div class="container">
+    <div id="formfill" style="display: none;">
+        <form>
+            <input class="btn btn-outline-info" type="text" placeholder="Name" id="name"><br>
+            <input class="btn btn-outline-info" type="text" placeholder="Collage Name" id="collage"><br>
+            <input class="btn btn-outline-info" type="text" placeholder="Student Id" id="sid"><br>
+            <input class="btn btn-outline-info" type="text" placeholder="Percentage" id="Percentage"><br>
+            <input class="btn btn-outline-info" type="text" placeholder="date-of-join" id="doj"><br>
+            male:<input type="radio" name="gender" id="male">
+            female:<input type="radio" name="gender" id="female"><br>
+            <input type="reset" id="back" value="back" class="btn btn-outline-warning"></input>
+            <input type="button" id="save" value="save" class="btn btn-outline-success"></input>
+            
+            
+        </form>
+        <script src="./person-details.js"></script>
+    </div>
+
+    <div>
+        
+        <table id="WholeTable"  style="display: none; border-collapse: collapse; width: 700px;" class="table table-striped table-dark">
+            <tr>
+                <th scope="col">sl.no</th>
+                <th scope="col">StudentName</th>
+                <th scope="col">CollageName</th>
+                <th scope="col">StudentId</th>             
+                <th scope="col">Percentage</th>
+                <th scope="col">Date Of Join</th>
+                <th scope="col">Gender</th>
+            </tr>
+            <tbody id="print">
+    
+    
+            </tbody>
+        </table>
+    </div>
+    <div style="display: none;" id="del">
+        <input type="text" id="deleteid" class="btn btn-outline-warning" placeholder="evter id">
+        <button onclick="deleteStudent()" class="btn btn-outline-danger">delet</button>
+    </div>
+    
+</div>
+</div>
+</body>
+</html>

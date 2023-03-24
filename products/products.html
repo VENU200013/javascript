@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./products.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+   
+    
+    <div>
+            <img src="./images/hm2.png" width="1485px" height="250px" ></img>
+            
+                <marquee direction="right">
+                    <img src="./images/hm4.png" height="120px" width="200px" ></img>
+                    <img src="./images/hm5.png" height="120px" width="200px" ></img>
+                    <img src="./images/hm6.png" height="120px" width="200px" ></img>
+                    <img src="./images/hm7.png" height="120px" width="200px" ></img>
+                    <img src="./images/hm8.png" height="120px" width="200px" ></img>
+                </marquee>
+            </div>
+
+          
+            <div id="center">
+
+                <select  class="btn btn-outline-primary" id="ad1" onchange="displayproduct()">
+
+                    <option value="">--select--</option>
+                    <option value="lg">lg</option>
+                    <option value="samsung">samsung</option>
+                    <option value="dell">dell</option>
+                    <option value="lenovo">lenovo</option>
+                    <option value="barbie">barbie</option>
+                    <option value="nike">nike</option>
+                </select>
+     <select class="btn btn-outline-primary" id="aa" onchange="displayproduct()">
+
+                    <option value="">--minimum--</option>
+                    <option value="2500">2500</option>
+                    <option value="3500">3500</option>
+                    <option value="4500">4500</option>
+                    <option value="5500">7500</option>
+                </select>
+
+
+                <select  class="btn btn-outline-primary" id="bb" onchange="displayproduct()">
+
+                    <option value="">--maximum--</option>
+                    <option value="6500">6500</option>
+                    <option value="7500">7500</option>
+                    <option value="8500">8500</option>
+                    <option value="9500">9500</option>
+                </select>
+
+
+                <select  class="btn btn-outline-primary" id="ca" onchange="displayproduct()">
+
+                    <option value="">--category--</option>
+                    <option value="footwear">footwear</option>
+                    <option value="cloths">cloths</option>
+                    <option value="electric">electric</option>
+                    <option value="toys">toys</option>
+
+                </select>
+                <input class="btn btn-outline-dark" placeholder="search" type="text" id="ba" onchange="displayproduct()" />
+            
+        </div>
+            <div id="display"></div>
+
+        
+            <script>
+                var product=[{id:123,brand:"olg",code:1,category:"electric",price:7500,item:"tv",img:"./images/lgtv1.png"},
+            {id:123,brand:"lg",code:2,category:"electric",item:"tv",price:2500,img:"./images/lgtv2.png"},
+            {id:124,brand:"lg",code:3,category:"electric",item:"tv",price:3500,img:"./images/lgtv3.png"},
+            {id:125,brand:"lg",code:4,category:"electric",item:"tv",price:4500,img:"./images/lgtv4.png"},
+            {id:123,brand:"lg",code:5,category:"electric",item:"tv",price:5500,img:"./images/lgtv5.png"},
+            {id:124,brand:"lg",code:6,category:"electric",item:"tv",price:6500,img:"./images/lgtv1.png"},
+            {id:125,brand:"lg",code:7,category:"electric",item:"tv",price:7500,img:"./images/lgtv2.png"},
+            {id:126,brand:"lg",code:8,category:"electric",item:"labtop",price:8500,img:"./images/lglt1.png"},
+            {id:127,brand:"lg",code:9,category:"electric",item:"labtop",price:3500,img:"./images/lglt2.png"},
+            {id:128,brand:"lg",code:10,category:"electric",item:"labtop",price:4500,img:"./images/lglt3.png"},
+            {id:126,brand:"lg",code:11,category:"electric",item:"labtop",price:5500,img:"./images/lglt4.png"},
+            {id:127,brand:"lg",code:12,category:"electric",item:"labtop",price:6500,img:"./images/lglt5.png"},
+            {id:128,brand:"lg",code:13,category:"electric",item:"labtop",price:7500,img:"./images/lglt6.png"},
+            {id:129,brand:"lg",code:14,category:"electric",item:"mobile",price:2500,img:"./images/lg1.png"},
+            {id:122,brand:"lg",code:15,category:"electric",item:"mobile",price:3500,img:"./images/lg2.png"},
+            {id:129,brand:"lg",code:16,category:"electric",item:"mobile",price:4500,img:"./images/lg3.png"},
+            {id:122,brand:"lg",code:17,category:"electric",item:"mobile",price:5500,img:"./images/lg4.png"},
+            {id:129,brand:"lg",code:18,category:"electric",item:"mobile",price:6500,img:"./images/lg5.png"},
+            {id:122,brand:"lg",code:19,category:"electric",item:"mobile",price:7500,img:"./images/lg6.png"},
+            {id:121,brand:"dell",code:20,category:"electric",item:"laptops ",price:6500,img:"./images/sm4.png "},
+            {id:131,brand:"dell",code:21,category:"electric",item:"laptops ",price:2500,img:"./images/sm5.png "},
+            {id:132,brand:"dell",code:22,category:"electric",item:"laptops ",price:5500,img:"./images/sm1.png "},
+            {id:126,brand:"dell",code:23,category:"electric",item:"labtop",price:8500,img:"./images/lglt1.png"},
+            {id:127,brand:"dell",code:24,category:"electric",item:"labtop",price:3500,img:"./images/lglt2.png"},
+            {id:128,brand:"dell",code:25,category:"electric",item:"labtop",price:4500,img:"./images/lglt3.png"},
+            {id:126,brand:"lenovo",code:26,category:"electric",item:"labtop",price:5500,img:"./images/lglt4.png"},
+            {id:127,brand:"lenovo",code:27,category:"electric",item:"labtop",price:6500,img:"./images/lglt5.png"},
+            {id:121,brand:"dell",code:28,category:"electric",item:"laptops ",price:6500,img:"./images/sm4.png "},
+            {id:131,brand:"dell",code:29,category:"electric",item:"laptops ",price:2500,img:"./images/sm5.png "},
+            {id:128,brand:"lenovo",code:30,category:"electric",item:"labtop",price:7500,img:"./images/lglt6.png"},
+            {id:121,brand:"samsung",code:31,category:"electric",item:"mobile ",price:7500,img:" ./images/sm1.png"},
+            {id:131,brand:"samsung",code:32,category:"electric",item:"mobile ",price:8500,img:" ./images/sm2.png"},
+            {id:132,brand:"samsung",code:33,category:"electric",item:"mobile ",price:8500,img:" ./images/sm3.png"},
+            {id:121,brand:"samsung",code:34,category:"electric",item:"laptops ",price:6500,img:"./images/sm4.png "},
+            {id:131,brand:"samsung",code:35,category:"electric",item:"laptops ",price:2500,img:"./images/sm5.png "},
+            {id:132,brand:"samsung",code:36,category:"electric",item:"laptops ",price:5500,img:"./images/sm6.png "},
+            {id:133,brand:"samsung",code:37,category:"electric",item:"tv ",price:2500,img:"./images/st1.png"},
+            {id:134,brand:"samsung",code:38,category:"electric",item:"tv ",price:3500,img:"./images/st2.png"},
+            {id:133,brand:"samsung",code:39,category:"electric",item:"tv ",price:4500,img:"./images/st3.png"},
+            {id:134,brand:"samsung",code:40,category:"electric",item:"tv ",price:5500,img:"./images/st4.png"},
+            {id:134,brand:"samsung",code:41,category:"electric",item:"tv ",price:6500,img:"./images/st5.png"},
+            {id:135,brand:"samsung",code:42,category:"electric",item:"ac ",price:7500,img:"./images/sa1.png"},
+            {id:136,brand:"samsung",code:43,category:"electric",item:"ac ",price:7500,img:"./images/sa2.png"},
+            {id:137,brand:"samsung",code:44,category:"electric",item:"ac ",price:3500,img:"./images/sa3.png"},
+            {id:137,brand:"samsung",code:45,category:"electric",item:"ac ",price:4500,img:"./images/sa4.png"},
+            {id:137,brand:"samsung",code:46,category:"electric",item:"ac ",price:5500,img:"./images/sa5.png"},
+            {id:138,brand:"barbie" ,code:47,category:"toys",item:"cars",price:6500,img:"./images/bc1.png"},
+            {id:139,brand:"barbie" ,code:48,category:"toys",item:"cars",price:7500,img:"./images/bc2.png"},
+            {id:138,brand:"barbie",code:49,category:"toys",item:"cars",price:8500,img:"./images/bc3.png"},
+            {id:139,brand:"barbie",code:50,category:"toys",item:"cars",price:3500,img:"./images/bc4.png"},
+            {id:141,brand:"barbie",code:51,category:"toys",item:"cars",price:4500,img:"./images/bc5.png"},
+            {id:142,brand:"barbie",code:52,category:"toys",item:"teddy",price:5500,img:"./images/bt1.png"},
+            {id:143,brand:"barbie",code:53,category:"toys",item:"teddy",price:8500,img:"./images/bt2.png"},
+            {id:142,brand:"barbie",code:54,category:"toys",item:"teddy",price:7500,img:"./images/bt3.png"},
+            {id:143,brand:"barbie",code:55,category:"toys",item:"teddy",price:2500,img:"./images/bt4.png"},
+            {id:143,brand:"barbie",code:56,category:"toys",item:"teddy",price:3500,img:"./images/bt5.png"},
+            {id:144,brand:"barbie",code:57,category:"toys",item:"toygun",price:4500,img:"./images/bg1.png"},
+            {id:145,brand:"barbie",code:58,category:"toys",item:"toygun",price:5500,img:"./images/bg2.png"},
+            {id:144,brand:"barbie",code:59,category:"toys",item:"toygun",price:6500,img:"./images/bg3.png"},
+            {id:145,brand:"barbie",code:60,category:"toys",item:"toygun",price:7500,img:"./images/bg4.png"},
+            {id:146,brand:"barbie",code:61,category:"toys",item:"toygun",price:8500,img:"./images/bg5.png"},
+            {id:147,brand:"nike",code:61,category:"footwear",item:"slippers",price:2500,img:"./images/ns1.png"},
+            {id:148,brand:"nike",code:62,category:"footwear",item:"slippers",price:3500,img:"./images/ns2.png"},
+            {id:149,brand:"nike",code:63,category:"footwear",item:"slippers",price:4500,img:"./images/ns3.png"},
+            {id:148,brand:"nike",code:64,category:"footwear",item:"slippers",price:5500,img:"./images/ns4.png"},
+            {id:149,brand:"nike",code:65,category:"footwear",item:"slippers",price:6500,img:"./images/ns5.png"},
+            {id:151,brand:"nike",code:66,category:"footwear",item:"shoes",price:7500,img:"./images/nsh1.png"},
+            {id:152,brand:"nike",code:67,category:"footwear",item:"shoes",price:2500,img:"./images/nsh2.png"},
+            {id:153,brand:"nike",code:68,category:"footwear",item:"shoes",price:3500,img:"./images/nsh3.png"},
+            {id:152,brand:"nike",code:71,category:"footwear",item:"shoes",price:4500,img:"./images/nsh4.png"},
+            {id:153,brand:"nike",code:72,category:"footwear",item:"shoes",price:5500,img:"./images/nsh5.png"},
+            {id:154,brand:"nike",code:73,category:"footwear",item:"loafers",price:8500,img:"./images/nl1.png"},
+            {id:155,brand:"nike",code:74,category:"footwear",item:"loafers",price:7500,img:"./images/nl2.png"},
+            {id:154,brand:"nike",code:75,category:"footwear",item:"loafers",price:8500,img:"./images/nl3.png"},
+            {id:155,brand:"nike",code:76,category:"footwear",item:"loafers",price:3500,img:"./images/nl4.png"},
+            {id:155,brand:"nike",code:77,category:"footwear",item:"loafers",price:4500,img:"./images/nl5.png"},
+            {id:123,brand:"nike",code:78,category:"cloths",item:"shirts",price:5500,img:"./images/nshi1.png"},
+            {id:124,brand:"nike",code:79,category:"cloths",item:"shirts",price:6500,img:"./images/nshi2.png"},
+            {id:125,brand:"nike",code:80,category:"cloths",item:"shirts",price:2500,img:"./images/nshi3.png"},
+            {id:124,brand:"nike",code:81,category:"cloths",item:"shirts",price:8500,img:"./images/nshi4.png"},
+            {id:125,brand:"nike",code:82,category:"cloths",item:"shirts",price:3500,img:"./images/nshi5.png"},
+            {id:123,brand:"nike",code:83,category:"cloths",item:"pants",price:4500,img:"./images/tp.png"},
+            {id:124,brand:"nike",code:84,category:"cloths",item:"pants",price:5500,img:"./images/tp2.png"},
+            {id:125,brand:"nike",code:85,category:"cloths",item:"pants",price:8500,img:"./images/tp3.png"},
+            {id:124,brand:"nike",code:86,category:"cloths",item:"pants",price:2500,img:"./images/tp4.png"},
+            {id:125,brand:"nike",code:87,category:"cloths",item:"pants",price:7500,img:"./images/tp5.png"},
+            ]
+            
+            
+           
+                
+                    function displayproduct() {
+                        var display=document.getElementById("display")
+                        var brands = document.getElementById("ad1").value;
+                var min = document.getElementById("aa").value;
+                var max = document.getElementById("bb").value;
+                var cat = document.getElementById("ca").value;
+                var sear = document.getElementById("ba").value;
+                var st=""
+                if(sear!=""){
+                var ab = product.filter((ele) => {
+        return ele.item.includes(sear)})
+        ab.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                console.log(ab);
+    }
+
+                        if(brands!=""&&min==""&&max==""&&cat==""){
+                  var brandVal= product.filter(ele=>{
+                    return ele.brand==brands})
+                   brandVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                console.log(brandVal);}
+
+                   else if(brands!=""&&min!=""&&max==""&&cat==""){
+                    var brandAndMinVal= product.filter(ele=>{
+                        return ele.brand==brands&&ele.price>=min
+                       })
+                       brandAndMinVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(brandAndMinVal);
+                          }
+                          else if(brands!=""&&min!=""&&max!=""&&cat==""){
+                            var brandAndMinAndMaxVal= product.filter(ele=>{
+                                return ele.brand==brands&&ele.price>=min&&ele.price<=max
+                               })
+                               brandAndMinAndMaxVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(brandAndMinAndMaxVal);
+                                  }
+                                  else if(brands==""&&min==""&&max==""&&cat!=""){
+                                    var catVal= product.filter(ele=>{
+                                        return ele.category==cat
+                                       })
+                                       catVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(catVal);
+                                          }
+                                          else if(brands==""&&min==""&&max!=""&&cat!=""){
+                                            var maxcatVal= product.filter(ele=>{
+                                                return ele.price<=max&&ele.category==cat
+                                               })
+                                               maxcatVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(maxcatVal);
+                                                  }
+                                                  else if(brands==""&&min!=""&&max!=""&&cat!=""){
+                                                    var minmaxcatVal= product.filter(ele=>{
+                                                        return ele.price>=min&&ele.price<=max&&ele.category==cat
+                                                       })
+                                                       minmaxcatVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(minmaxcatVal);
+                                                          }
+                                                          else if(brands!=""&&min==""&&max==""&&cat!=""){
+                                                            var btancatVal= product.filter(ele=>{
+                                                                return ele.brand==brands&&ele.category==cat
+                                                               })
+                                                               btancatVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(btancatVal);
+                                                                  }
+                                                                  else if(brands!=""&&min!=""&&max==""&&cat!=""){
+                                                                    var btanmincatVal= product.filter(ele=>{
+                                                                        return ele.brand==brands&&ele.price>=min&&ele.category==cat
+                                                                       })
+                                                                       btanmincatVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(btanmincatVal);
+                                                                          }
+                                                                         else if(brands==""&&min!=""&&max==""&&cat==""){
+                                                                           var mincatVal= product.filter(ele=>{
+                                                                               return ele.price>=min
+                                                                              })
+                                                                              mincatVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(mincatVal);
+                                                                                 }
+                                                                                 else if(brands==""&&min==""&&max!=""&&cat==""){
+                                                                                   var maxVal= product.filter(ele=>{
+                                                                                       return ele.price<=max
+                                                                                      })
+                                                                                      mimaxValncatVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(maxVal);
+                                                                                         }
+                                                                                         else if(brands==""&&min!=""&&max!=""&&cat==""){
+                                                                                           var minmaxVal= product.filter(ele=>{
+                                                                                               return ele.price>=min&&ele.price<=max})
+                                                                                               minmaxVal.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(minmaxVal);  
+                                                                                            }
+                                                                                              else if(brands!=""&&min!=""&&max!=""&&cat!=""){
+                                                                                               var all= product.filter(ele=>{
+                                                                                                   return ele.price>=min&&ele.price<=max
+                                                                                                  })
+                                                                                                  all.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(all);  }
+                   else{
+                                product.map(abc=>{
+                    st=st+`<div class="clr ">
+    <img src=${abc.img} height="100px" width="100px"></img>                        
+        <p>product ID<b>:${abc.id}</b></p><p>product item<b>:${abc.item}</b></p><p>product brand<b>:${abc.brand}</b>
+        </p> <p>product code<b>:${abc.code}</b></p>  <p>category<b>:${abc.category}</b></p>  <p>product price
+        <b>:${abc.price}</b></p></div>` })
+                   display.innerHTML=st;
+                   console.log(product);  
+
+                              }    
+
+                        
+                    }
+                    
+                </script>
+    
+</body>
+</html>
