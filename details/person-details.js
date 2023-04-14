@@ -78,7 +78,7 @@ var deleteStudent=()=>{
     document.getElementById("del").style.display="block"
     var deleteid=document.getElementById('deleteid').value
     
-    localStorage.removeItem(`data${[Math.trunc(deleteid)]}`)
+    localStorage.removeItem(deleteid)
 
 }
 
